@@ -8,7 +8,7 @@
         "url": ""
     },
     "scripts": {
-        "start": "grunt build && node app"
+        "start": "grunt build && node fakeBackend/app.js"
     },
     "bugs": "https://github.com/agencyrevolution/ar-ng-boilerplate/issues",
     "repository": {
