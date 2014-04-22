@@ -6,16 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes');
-var users = require('./routes/user');
-var contacts = require('./routes/contacts');
-var campaigns = require('./routes/campaigns');
-var agencyLocationProperties = require('./routes/agencyLocationProperties');
-var agencyLocations = require('./routes/agencyLocations');
-var amsTypeLogTypeMaps = require('./routes/amsTypeLogTypeMaps');
-var changeRequests = require('./routes/changeRequests');
-var fileUploads = require('./routes/fileUploads');
-var status = require('./routes/status');
-var topics = require('./routes/topics');
+
 var app = express();
 var clientPath = path.resolve(__dirname, '..', 'build');
 app.set('views', clientPath);
@@ -32,21 +23,6 @@ app.use(app.router);
 // Start of API
 var baseUrl = '/api';
 app.get('/', routes.index);
-app.get('/users', users.list);
-app.get(baseUrl + '/contacts/find', contacts.find);
-app.post(baseUrl + '/contacts/save', contacts.save);
-app.get(baseUrl + '/campaigns/get', campaigns.get);
-app.post(baseUrl + '/campaigns/assign', campaigns.assign);
-app.get(baseUrl + '/AgencyLocationProperties/GetByAgencyLocationId', agencyLocationProperties.getByAgencyLocationId);
-app.get(baseUrl + '/AgencyLocations/GetAll', agencyLocations.getAll);
-app.get(baseUrl + '/amsTypeLogTypeMaps/GetAll', amsTypeLogTypeMaps.getAll);
-app.post(baseUrl + '/ChangeRequests/Create', changeRequests.create);
-app.get(baseUrl + '/ChangeRequests/GetChangeRequests', changeRequests.getChangeRequests);
-app.post(baseUrl + '/fileUploads/Verify', fileUploads.verify);
-app.post(baseUrl + '/fileUploads/Import', fileUploads.import);
-app.get(baseUrl + '/topics/get/:id', topics.get);
-app.get(baseUrl + '/topics/find', topics.find);
-app.get(baseUrl + '/Status/get/:id', status.get);
 // End of API
 //.......................
 /// catch 404 and forwarding to error handler
